@@ -114,11 +114,13 @@
             z-index: 1500;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             opacity: 0;
             visibility: hidden;
             transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            overflow-y: auto;
+            overflow-x: hidden;
         }
 
         .menu-overlay.active {
@@ -212,7 +214,9 @@
             transform: scale(0.8);
             opacity: 0;
             transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.2s;
-            margin-top: 100px;
+            margin-top: 120px;
+            margin-bottom: 50px;
+            padding: 0 20px;
         }
 
         .menu-overlay.active .menu-content {
@@ -221,7 +225,7 @@
         }
 
         .menu-section {
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .menu-section:last-child {
@@ -406,6 +410,7 @@
             width: 100%;
             height: auto;
             display: block;
+            vertical-align: bottom;
         }
 
         /* تصميم متجاوب إضافي */
@@ -439,41 +444,57 @@
             }
 
             .menu-logo {
-                width: 120px;
+                width: 100px;
             }
 
             .menu-close {
-                width: 35px;
-                height: 35px;
+                width: 30px;
+                height: 30px;
             }
 
             .menu-close::before,
             .menu-close::after {
-                width: 25px;
+                width: 22px;
             }
 
-            .menu-list a {
-                font-size: 24px;
-            }
-
-            .menu-section.secondary .menu-list a {
-                font-size: 18px;
-            }
-
-            .menu-section.account .menu-list a {
-                font-size: 16px;
+            .menu-content {
+                margin-top: 100px;
+                margin-bottom: 40px;
             }
 
             .menu-section {
-                margin-bottom: 35px;
+                margin-bottom: 25px;
             }
 
             .menu-section.account {
-                margin-top: 40px;
+                margin-top: 30px;
+            }
+
+            .menu-list li {
+                margin: 12px 0;
+            }
+
+            .menu-list a {
+                font-size: 20px;
+                letter-spacing: 2px;
+                padding: 8px 15px;
+            }
+
+            .menu-section.secondary .menu-list a {
+                font-size: 16px;
+            }
+
+            .menu-section.account .menu-list a {
+                font-size: 14px;
+            }
+
+            .menu-divider {
+                width: 80px;
+                margin: 25px auto;
             }
 
             .menu-header {
-                padding: 20px 5%;
+                padding: 15px 5%;
             }
 
             .products-section {
@@ -501,6 +522,35 @@
         }
 
         @media (max-width: 480px) {
+            .menu-logo {
+                width: 80px;
+            }
+
+            .menu-content {
+                margin-top: 90px;
+            }
+
+            .menu-list a {
+                font-size: 18px;
+                letter-spacing: 1.5px;
+            }
+
+            .menu-section.secondary .menu-list a {
+                font-size: 14px;
+            }
+
+            .menu-section.account .menu-list a {
+                font-size: 12px;
+            }
+
+            .menu-section {
+                margin-bottom: 20px;
+            }
+
+            .menu-section.account {
+                margin-top: 25px;
+            }
+
             .products-grid {
                 gap: 35px 15px;
             }
