@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>متجري الإلكتروني</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400,500,600,700,800&family=Playfair+Display:wght@400,500,600,700,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="menu.css">
     
     <style>
         * {
@@ -15,6 +19,7 @@
         body {
             overflow-x: hidden;
             background-color: #000;
+            font-family: 'Playfair Display', serif;
         }
 
         /* خلفية الصفحة */
@@ -44,7 +49,7 @@
             padding: 30px 5%;
             z-index: 1000;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
         }
 
@@ -54,34 +59,6 @@
         }
 
         .logo-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* تصميم متجاوب */
-        @media (max-width: 768px) {
-            .logo-container {
-                width: 120px;
-            }
-            
-            .navbar {
-                padding: 20px 5%;
-            }
-        }
-
-        /* الفوتر */
-        .footer-container {
-            position: relative;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: auto;
-            min-height: 150px;
-            z-index: 1000;
-        }
-
-        .footer-container img {
             width: 100%;
             height: auto;
             display: block;
@@ -135,28 +112,48 @@
         .product-name {
             font-size: 28px;
             font-weight: 700;
-            color: #2c2c2c;
+            color: #3d2f1f;
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 2px;
+            font-family: 'Cinzel', serif;
         }
 
         .explore-btn {
             display: inline-block;
             padding: 14px 35px;
-            background-color: #2c2c2c;
+            background-color: #3d2f1f;
             color: #ffffff;
             text-decoration: none;
             font-weight: 600;
             font-size: 14px;
             letter-spacing: 1.5px;
             transition: all 0.3s ease;
-            border: 2px solid #2c2c2c;
+            border: 2px solid #3d2f1f;
+            font-family: 'Cinzel', serif;
         }
 
         .explore-btn:hover {
             background-color: transparent;
-            color: #2c2c2c;
+            color: #3d2f1f;
+        }
+
+        /* الفوتر */
+        .footer-container {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            min-height: 150px;
+            z-index: 1000;
+            margin-top: 80px;
+        }
+
+        .footer-container img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* تصميم متجاوب إضافي */
@@ -176,6 +173,14 @@
         }
 
         @media (max-width: 768px) {
+            .logo-container {
+                width: 120px;
+            }
+            
+            .navbar {
+                padding: 20px 5%;
+            }
+
             .products-section {
                 padding: 120px 5% 60px 5%;
             }
@@ -231,7 +236,54 @@
             <div class="logo-container">
                 <img src="L11.png" alt="Logo">
             </div>
+            <div class="menu-icon" id="menuIcon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
+
+        <!-- قائمة المنيو -->
+        <div class="menu-overlay" id="menuOverlay">
+            <!-- هيدر المنيو -->
+            <div class="menu-header">
+                <div class="menu-close" id="menuClose"></div>
+                <div class="menu-logo">
+                    <img src="L11.png" alt="Logo">
+                </div>
+            </div>
+
+            <div class="menu-content">
+                <!-- القسم الرئيسي -->
+                <div class="menu-section">
+                    <ul class="menu-list">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#cart">Shopping Cart</a></li>
+                    </ul>
+                </div>
+
+                <div class="menu-divider"></div>
+
+                <!-- القسم الثانوي -->
+                <div class="menu-section secondary">
+                    <ul class="menu-list">
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#returns">Return Policy</a></li>
+                        <li><a href="#about">About Store</a></li>
+                    </ul>
+                </div>
+
+                <div class="menu-divider"></div>
+
+                <!-- قسم الحساب -->
+                <div class="menu-section account">
+                    <ul class="menu-list">
+                        <li><a href="#account">My Account</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
         <!-- قسم المنتجات -->
         <section class="products-section">
@@ -242,7 +294,7 @@
                         <img src="P1.png" alt="Hattan 1">
                     </div>
                     <h3 class="product-name">HATTAN 1</h3>
-                    <a href="#" class="explore-btn">EXPLORE MORE</a>
+                    <a href="javascript:void(0)" class="explore-btn">EXPLORE MORE</a>
                 </div>
 
                 <!-- المنتج الثاني -->
@@ -251,7 +303,7 @@
                         <img src="P2.png" alt="Hattan 2">
                     </div>
                     <h3 class="product-name">HATTAN 2</h3>
-                    <a href="#" class="explore-btn">EXPLORE MORE</a>
+                    <a href="javascript:void(0)" class="explore-btn">EXPLORE MORE</a>
                 </div>
 
                 <!-- المنتج الثالث -->
@@ -260,7 +312,7 @@
                         <img src="P3.png" alt="Ghada">
                     </div>
                     <h3 class="product-name">GHADA</h3>
-                    <a href="#" class="explore-btn">EXPLORE MORE</a>
+                    <a href="javascript:void(0)" class="explore-btn">EXPLORE MORE</a>
                 </div>
 
                 <!-- المنتج الرابع -->
@@ -269,7 +321,7 @@
                         <img src="P4.png" alt="Bareq">
                     </div>
                     <h3 class="product-name">BAREQ</h3>
-                    <a href="#" class="explore-btn">EXPLORE MORE</a>
+                    <a href="javascript:void(0)" class="explore-btn">EXPLORE MORE</a>
                 </div>
             </div>
         </section>
@@ -279,5 +331,7 @@
             <img src="F1.png" alt="Footer">
         </footer>
     </div>
+
+    <script src="menu.js"></script>
 </body>
 </html>
