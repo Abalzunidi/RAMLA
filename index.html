@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجري الإلكتروني</title>
+    <title><Ramla-Design></Ramla-Design> </title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300,400,500,600,700&family=Tangerine:wght@400,700&display=swap" rel="stylesheet">
@@ -192,7 +192,7 @@
 
         .menu-close {
             position: absolute;
-            right: 25px;
+            left: 25px;
             cursor: pointer;
             width: 35px;
             height: 35px;
@@ -232,7 +232,7 @@
         }
 
         .menu-section {
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
         .menu-section:last-child {
@@ -245,19 +245,20 @@
         }
 
         .menu-list li {
-            margin: 18px 0;
+            margin: 14px 0;
         }
 
+        /* حجم موحد لكل الأقسام */
         .menu-list a {
             color: #2d1f0f;
             text-decoration: none;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2.5px;
             position: relative;
             display: inline-block;
-            padding: 8px 0;
+            padding: 6px 0;
             transition: all 0.3s ease;
             font-family: 'Cormorant Garamond', serif;
         }
@@ -280,14 +281,14 @@
 
         .menu-list a:hover {
             color: #1a0f05;
-            letter-spacing: 4px;
+            letter-spacing: 3.5px;
         }
 
         .menu-divider {
-            width: 80px;
+            width: 70px;
             height: 1px;
             background: linear-gradient(90deg, transparent, #8b6f47, transparent);
-            margin: 30px auto;
+            margin: 25px auto;
             position: relative;
         }
 
@@ -297,23 +298,24 @@
             content: '◆';
             position: absolute;
             color: #8b6f47;
-            font-size: 8px;
+            font-size: 7px;
             top: 50%;
             transform: translateY(-50%);
         }
 
         .menu-divider::before {
-            left: -15px;
+            left: -12px;
         }
 
         .menu-divider::after {
-            right: -15px;
+            right: -12px;
         }
 
-        /* كل الأقسام نفس الحجم */
+        /* نفس الحجم لجميع الأقسام */
         .menu-section.secondary .menu-list a,
         .menu-section.account .menu-list a {
-            font-size: 20px;
+            font-size: 18px;
+            letter-spacing: 2.5px;
         }
 
         /* قسم المنتجات */
@@ -441,49 +443,64 @@
             }
 
             .menu-overlay {
-                width: 95%;
-                max-height: 90vh;
+                width: 90%;
+                max-width: 400px;
+                max-height: 80vh;
             }
 
             .menu-header {
-                padding: 20px 25px;
+                padding: 18px 20px;
             }
 
             .menu-logo {
-                width: 100px;
+                width: 90px;
             }
 
             .menu-close {
-                width: 30px;
-                height: 30px;
-                right: 20px;
+                width: 28px;
+                height: 28px;
+                left: 18px;
             }
 
             .menu-close::before,
             .menu-close::after {
-                width: 20px;
+                width: 18px;
             }
 
             .menu-content {
-                padding: 30px 25px;
+                padding: 30px 20px;
             }
 
             .menu-section {
-                margin-bottom: 28px;
+                margin-bottom: 22px;
             }
 
             .menu-list li {
-                margin: 15px 0;
+                margin: 10px 0;
             }
 
-            .menu-list a {
-                font-size: 18px;
+            /* حجم موحد للجوال */
+            .menu-list a,
+            .menu-section.secondary .menu-list a,
+            .menu-section.account .menu-list a {
+                font-size: 16px;
                 letter-spacing: 2px;
             }
 
             .menu-divider {
-                width: 60px;
-                margin: 25px auto;
+                width: 55px;
+                margin: 18px auto;
+            }
+
+            .menu-divider::before,
+            .menu-divider::after {
+                font-size: 6px;
+                left: -10px;
+            }
+
+            .menu-divider::after {
+                right: -10px;
+                left: auto;
             }
 
             .products-section {
@@ -511,31 +528,54 @@
         }
 
         @media (max-width: 480px) {
+            .menu-overlay {
+                width: 92%;
+                max-width: 340px;
+            }
+
             .menu-header {
-                padding: 18px 20px;
+                padding: 16px 18px;
             }
 
             .menu-logo {
-                width: 85px;
+                width: 80px;
             }
 
             .menu-close {
-                width: 28px;
-                height: 28px;
-                right: 18px;
+                width: 26px;
+                height: 26px;
+                left: 16px;
+            }
+
+            .menu-close::before,
+            .menu-close::after {
+                width: 16px;
             }
 
             .menu-content {
-                padding: 25px 20px;
-            }
-
-            .menu-list a {
-                font-size: 16px;
-                letter-spacing: 1.5px;
+                padding: 25px 18px;
             }
 
             .menu-section {
-                margin-bottom: 22px;
+                margin-bottom: 18px;
+            }
+
+            .menu-list li {
+                margin: 8px 0;
+            }
+
+            /* حجم موحد للجوالات الصغيرة */
+            .menu-list a,
+            .menu-section.secondary .menu-list a,
+            .menu-section.account .menu-list a {
+                font-size: 15px;
+                letter-spacing: 1.8px;
+                padding: 5px 0;
+            }
+
+            .menu-divider {
+                width: 50px;
+                margin: 16px auto;
             }
 
             .products-grid {
@@ -553,6 +593,37 @@
             .explore-btn {
                 padding: 10px 24px;
                 font-size: 11px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .menu-overlay {
+                width: 95%;
+            }
+
+            .menu-logo {
+                width: 70px;
+            }
+
+            .menu-content {
+                padding: 20px 15px;
+            }
+
+            .menu-list li {
+                margin: 7px 0;
+            }
+
+            /* حجم أصغر للشاشات الصغيرة جداً */
+            .menu-list a,
+            .menu-section.secondary .menu-list a,
+            .menu-section.account .menu-list a {
+                font-size: 14px;
+                letter-spacing: 1.5px;
+            }
+
+            .menu-divider {
+                width: 45px;
+                margin: 14px auto;
             }
         }
     </style>
