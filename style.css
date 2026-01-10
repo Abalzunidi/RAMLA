@@ -55,7 +55,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 3px;
     background: #2d1f0f;
-    color: #fff;
+    color: #d3b18b;
     border: 3px solid #2d1f0f;
     border-radius: 12px;
     cursor: pointer;
@@ -78,22 +78,6 @@ body {
     height: 100vh;
     z-index: 0;
     background-color: #d3b18b;
-}
-
-.background-container::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    height: 600px;
-    background-image: url('BG1.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.15;
-    z-index: 1;
 }
 
 .main-content {
@@ -129,16 +113,17 @@ body {
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 5px;
     z-index: 2000;
 }
 
 .menu-icon span {
-    width: 35px;
-    height: 3px;
+    width: 30px;
+    height: 2.5px;
     background: linear-gradient(135deg, #8b6f47, #d4a574);
     border-radius: 3px;
     transition: all 0.4s ease;
+    display: block;
 }
 
 .menu-icon.active span:nth-child(1) {
@@ -557,12 +542,12 @@ body {
     }
 
     .menu-icon {
-        gap: 5px;
+        gap: 4px;
     }
 
     .menu-icon span {
-        width: 28px;
-        height: 2.5px;
+        width: 25px;
+        height: 2px;
     }
 
     .cart-icon {
@@ -632,12 +617,12 @@ body {
     }
 
     .menu-icon {
-        gap: 4px;
+        gap: 3px;
     }
 
     .menu-icon span {
-        width: 25px;
-        height: 2px;
+        width: 22px;
+        height: 1.8px;
     }
 
     .cart-icon {
