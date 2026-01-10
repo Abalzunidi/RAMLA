@@ -557,7 +557,16 @@ body {
         width: 120px;
     }
 
-    .menu-icon span, .cart-icon {
+    .menu-icon {
+        gap: 5px;
+    }
+
+    .menu-icon span {
+        width: 28px;
+        height: 2.5px;
+    }
+
+    .cart-icon {
         width: 30px;
         height: 30px;
     }
@@ -617,6 +626,24 @@ body {
     .language-btn {
         padding: 16px 35px;
         font-size: 20px;
+    }
+
+    .navbar {
+        padding: 15px 5%;
+    }
+
+    .menu-icon {
+        gap: 4px;
+    }
+
+    .menu-icon span {
+        width: 25px;
+        height: 2px;
+    }
+
+    .cart-icon {
+        width: 28px;
+        height: 28px;
     }
 
     .ads-slider {
