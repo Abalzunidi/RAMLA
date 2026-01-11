@@ -226,6 +226,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 .menu-logo {
     width: 120px;
 }
@@ -282,6 +283,204 @@ body {
 .cart-empty {
     font-size: 18px;
     padding: 40px 20px;
+}
+
+/* بوب اب سياسة الاسترجاع */
+.return-policy-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(8px);
+    padding: 20px;
+}
+
+.return-policy-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.return-policy-box {
+    background: linear-gradient(135deg, #c9a876 0%, #d3b18b 100%);
+    border-radius: 15px;
+    max-width: 700px;
+    width: 100%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
+    transform: scale(0.8);
+    transition: transform 0.4s ease;
+}
+
+.return-policy-overlay.active .return-policy-box {
+    transform: scale(1);
+}
+
+.return-policy-header {
+    position: relative;
+    padding: 30px 70px 30px 30px;
+    border-bottom: 2px solid rgba(45, 31, 15, 0.2);
+}
+
+.return-policy-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2d1f0f;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.return-policy-close {
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    transition: transform 0.3s ease;
+}
+
+.return-policy-close:hover {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+.return-policy-close::before,
+.return-policy-close::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 25px;
+    height: 2px;
+    background: #2d1f0f;
+    border-radius: 2px;
+}
+
+.return-policy-close::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.return-policy-close::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.return-policy-content {
+    padding: 40px 40px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.policy-intro {
+    margin-bottom: 30px;
+}
+
+.policy-intro p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #3d2f1f;
+    text-align: center;
+    font-weight: 500;
+}
+
+.policy-section {
+    margin-bottom: 35px;
+}
+
+.policy-section:last-child {
+    margin-bottom: 0;
+}
+
+.policy-section h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2d1f0f;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.policy-section p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #3d2f1f;
+    margin-bottom: 15px;
+}
+
+.policy-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.policy-section li {
+    padding: 12px 0 12px 30px;
+    position: relative;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #3d2f1f;
+}
+
+.policy-section li::before {
+    content: '◆';
+    position: absolute;
+    color: #8b6f47;
+    font-size: 10px;
+    top: 15px;
+}
+
+html[dir="rtl"] .policy-section li {
+    padding: 12px 30px 12px 0;
+}
+
+html[dir="rtl"] .policy-section li::before {
+    right: 0;
+    left: auto;
+}
+
+html[dir="ltr"] .policy-section li {
+    padding: 12px 0 12px 30px;
+}
+
+html[dir="ltr"] .policy-section li::before {
+    left: 0;
+    right: auto;
+}
+
+.policy-divider {
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #8b6f47, transparent);
+    margin: 30px auto;
+    position: relative;
+}
+
+.policy-divider::before,
+.policy-divider::after {
+    content: '◆';
+    position: absolute;
+    color: #8b6f47;
+    font-size: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.policy-divider::before {
+    left: -15px;
+}
+
+.policy-divider::after {
+    right: -15px;
 }
 
 .menu-section {
@@ -660,5 +859,84 @@ body {
     .menu-list a {
         font-size: 15px !important;
         letter-spacing: 1.8px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .return-policy-header {
+        padding: 25px 60px 25px 25px;
+    }
+
+    .return-policy-title {
+        font-size: 22px;
+    }
+
+    .return-policy-content {
+        padding: 30px 25px;
+    }
+
+    .policy-section h3 {
+        font-size: 19px;
+    }
+
+    .policy-section li {
+        font-size: 15px;
+        padding: 10px 25px 10px 0;
+    }
+
+    html[dir="ltr"] .policy-section li {
+        padding: 10px 0 10px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .return-policy-box {
+        max-width: 95%;
+    }
+
+    .return-policy-header {
+        padding: 20px 55px 20px 20px;
+    }
+
+    .return-policy-title {
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+
+    .return-policy-close {
+        width: 28px;
+        height: 28px;
+        left: 18px;
+    }
+
+    .return-policy-close::before,
+    .return-policy-close::after {
+        width: 18px;
+    }
+
+    .return-policy-content {
+        padding: 25px 20px;
+    }
+
+    .policy-section {
+        margin-bottom: 25px;
+    }
+
+    .policy-section h3 {
+        font-size: 17px;
+        margin-bottom: 15px;
+    }
+
+    .policy-section li {
+        font-size: 14px;
+        padding: 8px 22px 8px 0;
+    }
+
+    html[dir="ltr"] .policy-section li {
+        padding: 8px 0 8px 22px;
+    }
+
+    .policy-divider {
+        margin: 20px auto;
     }
 }

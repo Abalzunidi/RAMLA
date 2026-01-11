@@ -53,8 +53,8 @@
                 <div class="menu-divider"></div>
                 <div class="menu-section secondary">
                     <ul class="menu-list">
-                        <li><a href="#privacy" data-ar="سياسة الخصوصية" data-en="Privacy Policy">سياسة الخصوصية</a></li>
-                        <li><a href="#returns" data-ar="سياسة الاسترجاع" data-en="Return Policy">سياسة الاسترجاع</a></li>
+                        <li><a href="#" class="privacy-policy-link" data-ar="سياسة الخصوصية" data-en="Privacy Policy">سياسة الخصوصية</a></li>
+                        <li><a href="#" class="return-policy-link" data-ar="سياسة الاسترجاع" data-en="Return Policy">سياسة الاسترجاع</a></li>
                         <li><a href="#about" data-ar="عن المتجر" data-en="About Store">عن المتجر</a></li>
                     </ul>
                 </div>
@@ -74,6 +74,92 @@
             </div>
             <div class="cart-content">
                 <p class="cart-empty" data-ar="السلة فارغة" data-en="Cart is empty">السلة فارغة</p>
+            </div>
+        </div>
+
+        <!-- بوب اب سياسة الاسترجاع -->
+        <div class="return-policy-overlay" id="returnPolicyOverlay">
+            <div class="return-policy-box">
+                <div class="return-policy-header">
+                    <h2 class="return-policy-title" data-ar="سياسة الاستبدال والاسترجاع" data-en="Exchange and Return Policy">سياسة الاستبدال والاسترجاع</h2>
+                    <div class="return-policy-close" id="returnPolicyClose"></div>
+                </div>
+                <div class="return-policy-content">
+                    <div class="policy-section">
+                        <h3 data-ar="شروط الاستبدال أو الاسترجاع" data-en="Exchange or Return Conditions">شروط الاستبدال أو الاسترجاع</h3>
+                        <ul>
+                            <li data-ar="يحق للعميل طلب الاستبدال أو الاسترجاع خلال ٧ أيام من تاريخ الاستلام فقط في حال وجود عيب مصنعي مثبت." data-en="The customer has the right to request an exchange or return within 7 days from the date of receipt only in case of a proven manufacturing defect.">يحق للعميل طلب الاستبدال أو الاسترجاع خلال ٧ أيام من تاريخ الاستلام فقط في حال وجود عيب مصنعي مثبت.</li>
+                            <li data-ar="عند وجود اختلاف واضح بالمقاسات عن الجدول، يجب إرفاق صورة توضح ذلك." data-en="If there is a clear difference in measurements from the chart, a photo must be attached to illustrate this.">عند وجود اختلاف واضح بالمقاسات عن الجدول، يجب إرفاق صورة توضح ذلك.</li>
+                            <li data-ar="لا يتم قبول الاستبدال أو الاسترجاع لأسباب ذوق شخصي أو طلب تفصيل خاص." data-en="Exchange or return is not accepted for personal taste reasons or custom tailoring requests.">لا يتم قبول الاستبدال أو الاسترجاع لأسباب ذوق شخصي أو طلب تفصيل خاص.</li>
+                            <li data-ar="المنتجات المفصلة حسب الطلب غير قابلة للإلغاء أو الاسترجاع إلا في حال عدم مطابقة المواصفات المتفق عليها." data-en="Custom-made products are non-cancellable or returnable unless they do not match the agreed specifications.">المنتجات المفصلة حسب الطلب غير قابلة للإلغاء أو الاسترجاع إلا في حال عدم مطابقة المواصفات المتفق عليها.</li>
+                        </ul>
+                    </div>
+
+                    <div class="policy-divider"></div>
+
+                    <div class="policy-section">
+                        <h3 data-ar="حالات لا يُقبل فيها الطلب" data-en="Cases Where Request is Not Accepted">حالات لا يُقبل فيها الطلب</h3>
+                        <ul>
+                            <li data-ar="انتهاء فترة الاسترجاع (أكثر من ٧ أيام)." data-en="Expiration of return period (more than 7 days).">انتهاء فترة الاسترجاع (أكثر من ٧ أيام).</li>
+                            <li data-ar="عدم ملاءمة التصميم أو المقاس لذوق العميل." data-en="Design or size not suiting customer's taste.">عدم ملاءمة التصميم أو المقاس لذوق العميل.</li>
+                            <li data-ar="وجود آثار استخدام أو غسيل للقطعة." data-en="Presence of signs of use or washing of the item.">وجود آثار استخدام أو غسيل للقطعة.</li>
+                            <li data-ar="عدم اتباع تعليمات العناية الموجودة على المنتج." data-en="Not following care instructions on the product.">عدم اتباع تعليمات العناية الموجودة على المنتج.</li>
+                            <li data-ar="في حال كانت القطعة مستخدمة أو غير مطابقة لحالتها الأصلية." data-en="If the item is used or not matching its original condition.">في حال كانت القطعة مستخدمة أو غير مطابقة لحالتها الأصلية.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- بوب اب سياسة الخصوصية -->
+        <div class="return-policy-overlay" id="privacyPolicyOverlay">
+            <div class="return-policy-box">
+                <div class="return-policy-header">
+                    <h2 class="return-policy-title" data-ar="سياسة الخصوصية" data-en="Privacy Policy">سياسة الخصوصية</h2>
+                    <div class="return-policy-close" id="privacyPolicyClose"></div>
+                </div>
+                <div class="return-policy-content">
+                    <div class="policy-intro">
+                        <p data-ar="نشكركم على ثقتكم بمتجر رملا. نلتزم بحماية خصوصية جميع عملائنا، ونوضح لكم في هذه الصفحة كيفية جمع واستخدام وحماية بياناتكم." data-en="Thank you for trusting Ramla Store. We are committed to protecting the privacy of all our customers, and we explain here how we collect, use, and protect your data.">نشكركم على ثقتكم بمتجر رملا. نلتزم بحماية خصوصية جميع عملائنا، ونوضح لكم في هذه الصفحة كيفية جمع واستخدام وحماية بياناتكم.</p>
+                    </div>
+
+                    <div class="policy-divider"></div>
+
+                    <div class="policy-section">
+                        <h3 data-ar="1. جمع البيانات" data-en="1. Data Collection">1. جمع البيانات</h3>
+                        <p data-ar="نجمع المعلومات الأساسية اللازمة لتقديم خدماتنا مثل: الاسم، رقم الجوال، عنوان الشحن، وبيانات الدفع عند إتمام الطلب." data-en="We collect basic information necessary to provide our services such as: name, mobile number, shipping address, and payment data when completing the order.">نجمع المعلومات الأساسية اللازمة لتقديم خدماتنا مثل: الاسم، رقم الجوال، عنوان الشحن، وبيانات الدفع عند إتمام الطلب.</p>
+                    </div>
+
+                    <div class="policy-section">
+                        <h3 data-ar="2. استخدام البيانات" data-en="2. Data Usage">2. استخدام البيانات</h3>
+                        <p data-ar="نستخدم بياناتكم فقط لغرض:" data-en="We use your data only for the purpose of:">نستخدم بياناتكم فقط لغرض:</p>
+                        <ul>
+                            <li data-ar="تجهيز وشحن الطلبات." data-en="Preparing and shipping orders.">تجهيز وشحن الطلبات.</li>
+                            <li data-ar="التواصل معكم بشأن حالة الطلب أو أي استفسار." data-en="Communicating with you regarding order status or any inquiry.">التواصل معكم بشأن حالة الطلب أو أي استفسار.</li>
+                            <li data-ar="تحسين تجربة التسوق وخدماتنا." data-en="Improving shopping experience and our services.">تحسين تجربة التسوق وخدماتنا.</li>
+                        </ul>
+                    </div>
+
+                    <div class="policy-section">
+                        <h3 data-ar="3. حماية المعلومات" data-en="3. Information Protection">3. حماية المعلومات</h3>
+                        <p data-ar="جميع بياناتكم محفوظة في أنظمة آمنة. تتم عمليات الدفع عبر بوابات دفع معتمدة وموثوقة، ولا نحتفظ بمعلومات البطاقة البنكية بعد إتمام العملية." data-en="All your data is stored in secure systems. Payment transactions are processed through certified and reliable payment gateways, and we do not retain bank card information after completing the transaction.">جميع بياناتكم محفوظة في أنظمة آمنة. تتم عمليات الدفع عبر بوابات دفع معتمدة وموثوقة، ولا نحتفظ بمعلومات البطاقة البنكية بعد إتمام العملية.</p>
+                    </div>
+
+                    <div class="policy-section">
+                        <h3 data-ar="4. مشاركة البيانات" data-en="4. Data Sharing">4. مشاركة البيانات</h3>
+                        <p data-ar="لا نشارك أي بيانات شخصية مع أي طرف ثالث إلا إذا كان ذلك مطلوبًا نظاميًا أو لتنفيذ طلبكم (مثل شركات الشحن)." data-en="We do not share any personal data with any third party unless it is legally required or to execute your order (such as shipping companies).">لا نشارك أي بيانات شخصية مع أي طرف ثالث إلا إذا كان ذلك مطلوبًا نظاميًا أو لتنفيذ طلبكم (مثل شركات الشحن).</p>
+                    </div>
+
+                    <div class="policy-section">
+                        <h3 data-ar="5. حقوق الملكية الفكرية" data-en="5. Intellectual Property Rights">5. حقوق الملكية الفكرية</h3>
+                        <p data-ar="جميع النصوص، الصور، التصاميم، والشعارات في موقع رملا مملوكة لنا، ولا يُسمح بنسخها أو إعادة استخدامها لأي غرض تجاري دون إذن خطي مسبق." data-en="All texts, images, designs, and logos on Ramla website are owned by us, and may not be copied or reused for any commercial purpose without prior written permission.">جميع النصوص، الصور، التصاميم، والشعارات في موقع رملا مملوكة لنا، ولا يُسمح بنسخها أو إعادة استخدامها لأي غرض تجاري دون إذن خطي مسبق.</p>
+                    </div>
+
+                    <div class="policy-section">
+                        <h3 data-ar="6. تحديث السياسة" data-en="6. Policy Updates">6. تحديث السياسة</h3>
+                        <p data-ar="قد نقوم بتحديث هذه السياسة عند الحاجة، وسيتم نشر أي تعديل هنا مباشرة." data-en="We may update this policy when needed, and any modification will be published here directly.">قد نقوم بتحديث هذه السياسة عند الحاجة، وسيتم نشر أي تعديل هنا مباشرة.</p>
+                    </div>
+                </div>
             </div>
         </div>
 

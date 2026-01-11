@@ -159,3 +159,61 @@ function setProductLink(event, productId) {
     link.href = `loading.html?product=${productId}&lang=${currentLanguage}`;
     window.location.href = link.href;
 }
+
+// بوب اب سياسة الاسترجاع
+const returnPolicyOverlay = document.getElementById('returnPolicyOverlay');
+const returnPolicyClose = document.getElementById('returnPolicyClose');
+const returnPolicyLink = document.querySelector('.return-policy-link');
+
+returnPolicyLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    returnPolicyOverlay.classList.add('active');
+    menuOverlay.classList.remove('active');
+    menuBackdrop.classList.remove('active');
+    menuIcon.classList.remove('active');
+    document.body.style.overflow = 'hidden';
+    
+    // تحديث النصوص حسب اللغة
+    updateTexts(currentLanguage);
+});
+
+returnPolicyClose.addEventListener('click', () => {
+    returnPolicyOverlay.classList.remove('active');
+    document.body.style.overflow = 'auto';
+});
+
+returnPolicyOverlay.addEventListener('click', (e) => {
+    if (e.target === returnPolicyOverlay) {
+        returnPolicyOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// بوب اب سياسة الخصوصية
+const privacyPolicyOverlay = document.getElementById('privacyPolicyOverlay');
+const privacyPolicyClose = document.getElementById('privacyPolicyClose');
+const privacyPolicyLink = document.querySelector('.privacy-policy-link');
+
+privacyPolicyLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    privacyPolicyOverlay.classList.add('active');
+    menuOverlay.classList.remove('active');
+    menuBackdrop.classList.remove('active');
+    menuIcon.classList.remove('active');
+    document.body.style.overflow = 'hidden';
+    
+    // تحديث النصوص حسب اللغة
+    updateTexts(currentLanguage);
+});
+
+privacyPolicyClose.addEventListener('click', () => {
+    privacyPolicyOverlay.classList.remove('active');
+    document.body.style.overflow = 'auto';
+});
+
+privacyPolicyOverlay.addEventListener('click', (e) => {
+    if (e.target === privacyPolicyOverlay) {
+        privacyPolicyOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
