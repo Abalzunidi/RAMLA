@@ -328,7 +328,7 @@ body {
 
 .return-policy-header {
     position: relative;
-    padding: 30px 70px 30px 30px;
+    padding: 30px 30px;
     border-bottom: 2px solid rgba(45, 31, 15, 0.2);
 }
 
@@ -864,7 +864,7 @@ html[dir="ltr"] .policy-section li::before {
 
 @media (max-width: 768px) {
     .return-policy-header {
-        padding: 25px 60px 25px 25px;
+        padding: 25px 25px;
     }
 
     .return-policy-title {
@@ -895,7 +895,7 @@ html[dir="ltr"] .policy-section li::before {
     }
 
     .return-policy-header {
-        padding: 20px 55px 20px 20px;
+        padding: 20px 20px;
     }
 
     .return-policy-title {
