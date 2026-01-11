@@ -150,3 +150,11 @@ setInterval(() => {
     currentSlide++;
     showSlide(currentSlide);
 }, 5000);
+
+// تحديث رابط المنتج حسب اللغة المختارة
+function setProductLink(event, productId) {
+    event.preventDefault();
+    const link = event.currentTarget;
+    link.href = `loading.html?product=${productId}&lang=${currentLanguage}`;
+    window.location.href = link.href;
+}

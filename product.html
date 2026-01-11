@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - Ramla Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./product-style.css">
+</head>
+<body>
+    <div class="background-container"></div>
+
+    <div class="main-content">
+        <!-- النافبار -->
+        <nav class="navbar">
+            <a href="index.html" class="back-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#3d2f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span data-ar="العودة للرئيسية" data-en="Back to Home">العودة للرئيسية</span>
+            </a>
+            <div class="logo-container">
+                <img src="L11.png" alt="Logo">
+            </div>
+        </nav>
+
+        <!-- محتوى المنتج -->
+        <div class="product-container">
+            <div class="product-layout">
+                <!-- صورة المنتج -->
+                <div class="product-image-section">
+                    <div class="product-main-image">
+                        <img id="productImage" src="" alt="Product">
+                    </div>
+                </div>
+
+                <!-- تفاصيل المنتج -->
+                <div class="product-details-section">
+                    <h1 class="product-title" id="productTitle"></h1>
+                    
+                    <!-- المقاسات (إجباري) -->
+                    <div class="option-group required">
+                        <label class="option-label">
+                            <span data-ar="المقاس" data-en="Size">المقاس</span>
+                            <span class="required-mark">*</span>
+                        </label>
+                        <div class="size-grid">
+                            <label class="size-option">
+                                <input type="radio" name="size" value="50" required>
+                                <span class="size-box">50</span>
+                            </label>
+                            <label class="size-option">
+                                <input type="radio" name="size" value="52">
+                                <span class="size-box">52</span>
+                            </label>
+                            <label class="size-option">
+                                <input type="radio" name="size" value="54">
+                                <span class="size-box">54</span>
+                            </label>
+                            <label class="size-option">
+                                <input type="radio" name="size" value="56">
+                                <span class="size-box">56</span>
+                            </label>
+                            <label class="size-option">
+                                <input type="radio" name="size" value="58">
+                                <span class="size-box">58</span>
+                            </label>
+                            <label class="size-option">
+                                <input type="radio" name="size" value="60">
+                                <span class="size-box">60</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- الخيارات الاختيارية -->
+                    <div class="option-group">
+                        <label class="option-label" data-ar="خيارات إضافية (اختياري)" data-en="Additional Options (Optional)">خيارات إضافية (اختياري)</label>
+                        
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="abaya-lock" id="abayaLock">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label" data-ar="تقفيل العباية" data-en="Abaya Lock">تقفيل العباية</span>
+                        </label>
+
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="lining-color" id="liningColor">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label" data-ar="تغيير لون البطانة (حسب التوفر)" data-en="Change Lining Color (Subject to Availability)">تغيير لون البطانة (حسب التوفر)</span>
+                        </label>
+
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="secondary-color" id="secondaryColor">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label" data-ar="تغيير اللون الثانوي (حسب التوفر)" data-en="Change Secondary Color (Subject to Availability)">تغيير اللون الثانوي (حسب التوفر)</span>
+                        </label>
+                    </div>
+
+                    <!-- الملاحظات -->
+                    <div class="option-group">
+                        <label class="option-label" for="notes" data-ar="ملاحظات إضافية" data-en="Additional Notes">ملاحظات إضافية</label>
+                        <textarea 
+                            id="notes" 
+                            name="notes" 
+                            rows="4" 
+                            class="notes-textarea"
+                            placeholder="اكتب ملاحظاتك هنا..."></textarea>
+                    </div>
+
+                    <!-- زر الإضافة للسلة -->
+                    <button class="add-to-cart-btn" id="addToCartBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 2L7.17 4H2v2h2l3.6 7.59-1.35 2.44C5.52 16.55 5.5 17.22 5.5 17.5c0 1.1.9 2 2 2h12v-2H7.42c-.13 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0020 8H8.42l-.94-2H21V4H9.17L9 2zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" fill="currentColor"/>
+                        </svg>
+                        <span data-ar="إضافة للسلة" data-en="Add to Cart">إضافة للسلة</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- وصف المنتج -->
+            <div class="product-description">
+                <h2 class="description-title" data-ar="وصف المنتج" data-en="Product Description">وصف المنتج</h2>
+                <div class="description-content" id="productDescription">
+                    <p data-ar="عباية فاخرة مصممة بعناية فائقة من أجود أنواع الأقمشة. تتميز بتصميم عصري أنيق يجمع بين الأصالة والحداثة." data-en="Luxurious abaya carefully designed from the finest fabrics. Features a modern elegant design that combines authenticity and modernity.">
+                        عباية فاخرة مصممة بعناية فائقة من أجود أنواع الأقمشة. تتميز بتصميم عصري أنيق يجمع بين الأصالة والحداثة.
+                    </p>
+                    <br>
+                    <h3 data-ar="المميزات:" data-en="Features:">المميزات:</h3>
+                    <ul>
+                        <li data-ar="قماش فاخر عالي الجودة" data-en="Premium high-quality fabric">قماش فاخر عالي الجودة</li>
+                        <li data-ar="تصميم عصري وأنيق" data-en="Modern and elegant design">تصميم عصري وأنيق</li>
+                        <li data-ar="مناسبة لجميع المناسبات" data-en="Suitable for all occasions">مناسبة لجميع المناسبات</li>
+                        <li data-ar="خياطة متقنة ودقيقة" data-en="Perfect and precise tailoring">خياطة متقنة ودقيقة</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- الفوتر -->
+        <footer class="footer-container">
+            <img src="F1.png" alt="Footer">
+        </footer>
+    </div>
+
+    <script src="./product-script.js"></script>
+</body>
+</html>

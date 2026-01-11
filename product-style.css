@@ -1,0 +1,557 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cormorant Garamond', serif !important;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #000;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    background-color: #d3b18b;
+}
+
+.main-content {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+}
+
+/* النافبار */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 5%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(211, 177, 139, 0.95);
+}
+
+.back-btn {
+    position: absolute;
+    left: 5%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #3d2f1f;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    gap: 12px;
+    color: #2d1f0f;
+}
+
+.back-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.back-btn:hover svg {
+    transform: translateX(5px);
+}
+
+.logo-container {
+    width: 150px;
+}
+
+.logo-container img {
+    width: 100%;
+    height: auto;
+}
+
+/* محتوى المنتج */
+.product-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 140px 5% 80px;
+}
+
+.product-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 80px;
+}
+
+/* صورة المنتج */
+.product-image-section {
+    position: sticky;
+    top: 140px;
+    height: fit-content;
+}
+
+.product-main-image {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 40px;
+    position: relative;
+}
+
+.product-main-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    border-top: 4px solid #8b6f47;
+    border-left: 4px solid #8b6f47;
+    border-radius: 15px 0 0 0;
+}
+
+.product-main-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    border-bottom: 4px solid #8b6f47;
+    border-right: 4px solid #8b6f47;
+    border-radius: 0 0 15px 0;
+}
+
+.product-main-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* تفاصيل المنتج */
+.product-details-section {
+    padding: 20px 0;
+}
+
+.product-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #2d1f0f;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.option-group {
+    margin-bottom: 35px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(45, 31, 15, 0.2);
+}
+
+.option-group:last-of-type {
+    border-bottom: none;
+}
+
+.option-label {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    color: #2d1f0f;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.required-mark {
+    color: #c9534d;
+    margin-right: 5px;
+}
+
+/* المقاسات */
+.size-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+}
+
+.size-option {
+    cursor: pointer;
+}
+
+.size-option input {
+    display: none;
+}
+
+.size-box {
+    display: block;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d1f0f;
+    border: 2px solid #8b6f47;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.size-option input:checked + .size-box {
+    background: #2d1f0f;
+    color: #d3b18b;
+    border-color: #2d1f0f;
+    transform: scale(1.05);
+}
+
+.size-box:hover {
+    border-color: #2d1f0f;
+    transform: translateY(-3px);
+}
+
+/* الخيارات الاختيارية */
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: rgba(139, 111, 71, 0.1);
+}
+
+.checkbox-option:hover {
+    background: rgba(139, 111, 71, 0.2);
+}
+
+.checkbox-option input {
+    display: none;
+}
+
+.checkmark {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #8b6f47;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.checkbox-option input:checked + .checkmark {
+    background: #2d1f0f;
+    border-color: #2d1f0f;
+}
+
+.checkbox-option input:checked + .checkmark::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #d3b18b;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.checkbox-label {
+    font-size: 17px;
+    color: #2d1f0f;
+    font-weight: 500;
+}
+
+/* الملاحظات */
+.notes-textarea {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 16px;
+    color: #2d1f0f;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid #8b6f47;
+    border-radius: 8px;
+    resize: vertical;
+    min-height: 120px;
+    transition: all 0.3s ease;
+}
+
+.notes-textarea:focus {
+    outline: none;
+    border-color: #2d1f0f;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.notes-textarea::placeholder {
+    color: rgba(45, 31, 15, 0.5);
+}
+
+/* زر الإضافة للسلة */
+.add-to-cart-btn {
+    width: 100%;
+    padding: 20px 40px;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #d3b18b;
+    background: #2d1f0f;
+    border: 3px solid #2d1f0f;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 40px;
+}
+
+.add-to-cart-btn:hover {
+    background: transparent;
+    color: #2d1f0f;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.add-to-cart-btn:active {
+    transform: translateY(-1px);
+}
+
+/* وصف المنتج */
+.product-description {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 50px;
+    border-radius: 15px;
+    margin-bottom: 60px;
+}
+
+.description-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2d1f0f;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.description-content {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #3d2f1f;
+}
+
+.description-content h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2d1f0f;
+    margin: 20px 0 15px;
+}
+
+.description-content ul {
+    list-style: none;
+    padding-right: 0;
+}
+
+.description-content li {
+    padding: 8px 0 8px 30px;
+    position: relative;
+}
+
+.description-content li::before {
+    content: '◆';
+    position: absolute;
+    right: 0;
+    color: #8b6f47;
+    font-size: 12px;
+}
+
+/* الفوتر */
+.footer-container {
+    margin-top: 80px;
+}
+
+.footer-container img {
+    width: 100%;
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .product-layout {
+        gap: 60px;
+    }
+
+    .product-main-image {
+        height: 500px;
+        padding: 30px;
+    }
+
+    .product-title {
+        font-size: 36px;
+    }
+
+    .size-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 20px 5%;
+    }
+
+    .logo-container {
+        width: 120px;
+    }
+
+    .back-btn {
+        font-size: 14px;
+        gap: 6px;
+    }
+
+    .back-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .product-container {
+        padding: 120px 5% 60px;
+    }
+
+    .product-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .product-image-section {
+        position: relative;
+        top: 0;
+    }
+
+    .product-main-image {
+        height: 400px;
+        padding: 25px;
+    }
+
+    .product-title {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    .option-label {
+        font-size: 18px;
+    }
+
+    .size-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    .size-box {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .checkbox-label {
+        font-size: 15px;
+    }
+
+    .add-to-cart-btn {
+        font-size: 18px;
+        padding: 18px 35px;
+    }
+
+    .product-description {
+        padding: 35px 25px;
+    }
+
+    .description-title {
+        font-size: 26px;
+    }
+
+    .description-content {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-container {
+        padding: 110px 5% 50px;
+    }
+
+    .product-main-image {
+        height: 350px;
+        padding: 20px;
+    }
+
+    .product-main-image::before,
+    .product-main-image::after {
+        width: 40px;
+        height: 40px;
+    }
+
+    .product-title {
+        font-size: 24px;
+        letter-spacing: 2px;
+    }
+
+    .option-label {
+        font-size: 16px;
+    }
+
+    .size-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .size-box {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .checkbox-option {
+        padding: 12px 15px;
+    }
+
+    .checkbox-label {
+        font-size: 14px;
+    }
+
+    .checkmark {
+        width: 20px;
+        height: 20px;
+    }
+
+    .add-to-cart-btn {
+        font-size: 16px;
+        padding: 16px 30px;
+        letter-spacing: 2px;
+    }
+
+    .product-description {
+        padding: 30px 20px;
+    }
+
+    .description-title {
+        font-size: 22px;
+    }
+
+    .description-content {
+        font-size: 15px;
+    }
+
+    .description-content h3 {
+        font-size: 18px;
+    }
+}
