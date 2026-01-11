@@ -37,7 +37,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(211, 177, 139, 0.95);
 }
 
 .back-btn {
