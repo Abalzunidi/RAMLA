@@ -105,11 +105,12 @@ html[dir="ltr"] .back-btn:hover svg {
 .product-item {
     background: rgba(255, 255, 255, 0.3);
     border-radius: 15px;
-    padding: 30px;
+    padding: 30px 40px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    display: flex;
+    display: grid;
+    grid-template-columns: 200px 1fr auto;
     align-items: center;
     gap: 40px;
 }
@@ -159,8 +160,6 @@ html[dir="ltr"] .back-btn:hover svg {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
     padding: 15px;
 }
 
@@ -175,6 +174,7 @@ html[dir="ltr"] .back-btn:hover svg {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 30px;
 }
 
 .product-name {
@@ -266,13 +266,13 @@ html[dir="ltr"] .explore-link:hover svg {
 
     .product-item {
         padding: 25px;
-        flex-direction: column;
+        grid-template-columns: 150px 1fr;
         gap: 25px;
     }
 
     .product-image {
-        width: 180px;
-        height: 180px;
+        width: 150px;
+        height: 150px;
     }
 
     .product-info {
@@ -312,11 +312,12 @@ html[dir="ltr"] .explore-link:hover svg {
     .product-item {
         padding: 20px;
         gap: 20px;
+        grid-template-columns: 120px 1fr;
     }
 
     .product-image {
-        width: 150px;
-        height: 150px;
+        width: 120px;
+        height: 120px;
         padding: 10px;
     }
 
