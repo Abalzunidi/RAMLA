@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Ramla Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./products-style.css">
+</head>
+<body>
+    <div class="background-container"></div>
+
+    <div class="main-content">
+        <!-- النافبار -->
+        <nav class="navbar">
+            <a href="index.html" class="back-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#3d2f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span data-ar="العودة للرئيسية" data-en="Back to Home">العودة للرئيسية</span>
+            </a>
+            <div class="logo-container">
+                <img src="L11.png" alt="Logo">
+            </div>
+        </nav>
+
+        <!-- قائمة المنتجات -->
+        <div class="products-container">
+            <h1 class="page-title" data-ar="منتجاتنا" data-en="Our Products">منتجاتنا</h1>
+            
+            <div class="products-list">
+                <!-- منتج 1 -->
+                <div class="product-item">
+                    <div class="product-info">
+                        <h2 class="product-name" data-ar="هتان 1" data-en="HATTAN 1">HATTAN 1</h2>
+                        <a href="loading.html?product=P1&lang=ar" class="explore-link" data-ar="اكتشف المزيد" data-en="EXPLORE MORE" onclick="setProductLink(event, 'P1')">
+                            EXPLORE MORE
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- منتج 2 -->
+                <div class="product-item">
+                    <div class="product-info">
+                        <h2 class="product-name" data-ar="هتان 2" data-en="HATTAN 2">HATTAN 2</h2>
+                        <a href="loading.html?product=P2&lang=ar" class="explore-link" data-ar="اكتشف المزيد" data-en="EXPLORE MORE" onclick="setProductLink(event, 'P2')">
+                            EXPLORE MORE
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- منتج 3 -->
+                <div class="product-item">
+                    <div class="product-info">
+                        <h2 class="product-name" data-ar="غضى" data-en="GHADA">GHADA</h2>
+                        <a href="loading.html?product=P3&lang=ar" class="explore-link" data-ar="اكتشف المزيد" data-en="EXPLORE MORE" onclick="setProductLink(event, 'P3')">
+                            EXPLORE MORE
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- منتج 4 -->
+                <div class="product-item">
+                    <div class="product-info">
+                        <h2 class="product-name" data-ar="بارق" data-en="BAREQ">BAREQ</h2>
+                        <a href="loading.html?product=P4&lang=ar" class="explore-link" data-ar="اكتشف المزيد" data-en="EXPLORE MORE" onclick="setProductLink(event, 'P4')">
+                            EXPLORE MORE
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- الفوتر -->
+        <footer class="footer-container">
+            <img src="F1.png" alt="Footer">
+        </footer>
+    </div>
+
+    <script src="./products-script.js"></script>
+</body>
+</html>

@@ -370,9 +370,28 @@ body {
 .description-content li::before {
     content: '◆';
     position: absolute;
-    right: 0;
     color: #8b6f47;
     font-size: 12px;
+}
+
+/* للعربي */
+html[dir="rtl"] .description-content li {
+    padding: 8px 30px 8px 0;
+}
+
+html[dir="rtl"] .description-content li::before {
+    right: 0;
+    left: auto;
+}
+
+/* للإنجليزي */
+html[dir="ltr"] .description-content li {
+    padding: 8px 0 8px 30px;
+}
+
+html[dir="ltr"] .description-content li::before {
+    left: 0;
+    right: auto;
 }
 
 /* الفوتر */

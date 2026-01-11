@@ -2,6 +2,7 @@ let currentLanguage = 'ar';
 
 function selectLanguage(lang) {
     currentLanguage = lang;
+    localStorage.setItem('currentLanguage', lang);
     document.getElementById('languagePopup').classList.add('hidden');
     
     if (lang === 'en') {
