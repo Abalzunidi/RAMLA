@@ -217,3 +217,32 @@ privacyPolicyOverlay.addEventListener('click', (e) => {
         document.body.style.overflow = 'auto';
     }
 });
+
+// بوب اب عن رملا
+const aboutOverlay = document.getElementById('aboutOverlay');
+const aboutClose = document.getElementById('aboutClose');
+const aboutLink = document.querySelector('.about-link');
+
+aboutLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    aboutOverlay.classList.add('active');
+    menuOverlay.classList.remove('active');
+    menuBackdrop.classList.remove('active');
+    menuIcon.classList.remove('active');
+    document.body.style.overflow = 'hidden';
+    
+    // تحديث النصوص حسب اللغة
+    updateTexts(currentLanguage);
+});
+
+aboutClose.addEventListener('click', () => {
+    aboutOverlay.classList.remove('active');
+    document.body.style.overflow = 'auto';
+});
+
+aboutOverlay.addEventListener('click', (e) => {
+    if (e.target === aboutOverlay) {
+        aboutOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
