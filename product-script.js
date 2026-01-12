@@ -77,10 +77,7 @@ function validateSize() {
 document.getElementById('addToCartBtn').addEventListener('click', function() {
     // التحقق من اختيار المقاس
     if (!validateSize()) {
-        const message = currentLang === 'ar' 
-            ? 'يرجى اختيار المقاس أولاً' 
-            : 'Please select a size first';
-        alert(message);
+        showErrorPopup(currentLang);
         return;
     }
     
@@ -110,17 +107,78 @@ document.getElementById('addToCartBtn').addEventListener('click', function() {
     cart.push(orderData);
     localStorage.setItem('cart', JSON.stringify(cart));
     
-    // رسالة تأكيد
-    const successMessage = currentLang === 'ar'
-        ? 'تمت إضافة المنتج للسلة بنجاح!'
-        : 'Product added to cart successfully!';
-    alert(successMessage);
+    // إظهار بوب اب النجاح
+    showSuccessPopup(currentLang);
     
-    // العودة للصفحة الرئيسية
+    // العودة للصفحة الرئيسية بعد ثانيتين
     setTimeout(() => {
         window.location.href = 'index.html';
-    }, 1000);
+    }, 2000);
 });
+
+// بوب اب النجاح
+function showSuccessPopup(lang) {
+    const message = lang === 'ar' 
+        ? 'تمت إضافة المنتج للسلة بنجاح!' 
+        : 'Product added to cart successfully!';
+    
+    // إنشاء البوب اب
+    const popup = document.createElement('div');
+    popup.className = 'success-popup';
+    popup.innerHTML = `
+        <div class="success-popup-content">
+            <div class="success-icon">✓</div>
+            <p class="success-message">${message}</p>
+        </div>
+    `;
+    
+    document.body.appendChild(popup);
+    
+    // إظهار البوب اب
+    setTimeout(() => {
+        popup.classList.add('show');
+    }, 10);
+    
+    // إخفاء البوب اب
+    setTimeout(() => {
+        popup.classList.remove('show');
+        setTimeout(() => {
+            document.body.removeChild(popup);
+        }, 300);
+    }, 1800);
+}
+
+// بوب اب الخطأ
+function showErrorPopup(lang) {
+    const message = lang === 'ar' 
+        ? 'يرجى اختيار المقاس أولاً' 
+        : 'Please select a size first';
+    
+    // إنشاء البوب اب
+    const popup = document.createElement('div');
+    popup.className = 'success-popup error-popup';
+    popup.innerHTML = `
+        <div class="success-popup-content">
+            <div class="success-icon error-icon">!</div>
+            <p class="success-message">${message}</p>
+        </div>
+    `;
+    
+    document.body.appendChild(popup);
+    
+    // إظهار البوب اب
+    setTimeout(() => {
+        popup.classList.add('show');
+    }, 10);
+    
+    // إخفاء البوب اب
+    setTimeout(() => {
+        popup.classList.remove('show');
+        setTimeout(() => {
+            document.body.removeChild(popup);
+        }, 300);
+    }, 1500);
+}
 
 // تحميل المنتج وتحديث النصوص
 loadProduct();
