@@ -78,10 +78,87 @@ function toggleCart() {
         document.body.style.overflow = 'hidden';
         menuOverlay.classList.remove('active');
         menuIcon.classList.remove('active');
+        updateCartDisplay();
     } else {
         document.body.style.overflow = 'auto';
     }
 }
+
+function updateCartDisplay() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartContent = document.getElementById('cartContent');
+    const cartFooter = document.getElementById('cartFooter');
+    const cartTotal = document.getElementById('cartTotal');
+    const cartCount = document.querySelector('.cart-count');
+    
+    // تحديث العدد في الأيقونة
+    if (cartCount) {
+        cartCount.textContent = cart.length;
+    }
+    
+    if (cart.length === 0) {
+        const emptyMsg = currentLanguage === 'ar' ? 'السلة فارغة' : 'Cart is empty';
+        cartContent.innerHTML = `<p class="cart-empty">${emptyMsg}</p>`;
+        cartFooter.style.display = 'none';
+    } else {
+        let itemsHTML = '<div class="cart-items">';
+        
+        cart.forEach((item, index) => {
+            const sizeLabel = currentLanguage === 'ar' ? 'المقاس:' : 'Size:';
+            const options = [];
+            
+            if (item.options && item.options.abayaLock) {
+                options.push(currentLanguage === 'ar' ? 'تقفيل العباية' : 'Abaya Lock');
+            }
+            if (item.options && item.options.liningColor) {
+                options.push(currentLanguage === 'ar' ? 'تغيير البطانة' : 'Lining Color');
+            }
+            if (item.options && item.options.secondaryColor) {
+                options.push(currentLanguage === 'ar' ? 'اللون الثانوي' : 'Secondary Color');
+            }
+            
+            const productImages = {
+                'P1': 'P1.png',
+                'P2': 'P2.png',
+                'P3': 'P3.png',
+                'P4': 'P4.png'
+            };
+            
+            itemsHTML += `
+                <div class="cart-item">
+                    <div class="cart-item-image">
+                        <img src="${productImages[item.productId] || 'P1.png'}" alt="${item.productName}">
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-name">${item.productName}</div>
+                        <div class="cart-item-info">
+                            ${sizeLabel} ${item.size}${options.length > 0 ? '<br>' + options.join(' • ') : ''}
+                        </div>
+                    </div>
+                    <button class="cart-item-remove" onclick="removeFromCart(${index})"></button>
+                </div>
+            `;
+        });
+        
+        itemsHTML += '</div>';
+        cartContent.innerHTML = itemsHTML;
+        cartTotal.textContent = cart.length;
+        cartFooter.style.display = 'flex';
+        
+        // تحديث النصوص
+        updateTexts(currentLanguage);
+    }
+}
+
+function removeFromCart(index) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartDisplay();
+}
+
+// تحديث عداد السلة عند تحميل الصفحة
+window.addEventListener('load', updateCartDisplay);
 
 cartIcon.addEventListener('click', toggleCart);
 cartClose.addEventListener('click', () => {

@@ -278,11 +278,147 @@ body {
 
 .cart-content {
     color: #2d1f0f;
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
 }
 
 .cart-empty {
     font-size: 18px;
     padding: 40px 20px;
+    text-align: center;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cart-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    align-items: center;
+    position: relative;
+}
+
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-item-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2d1f0f;
+    margin-bottom: 8px;
+}
+
+.cart-item-info {
+    font-size: 14px;
+    color: #3d2f1f;
+    line-height: 1.6;
+}
+
+.cart-item-remove {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(201, 83, 77, 0.2);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.cart-item-remove:hover {
+    background: #c9534d;
+}
+
+.cart-item-remove::before,
+.cart-item-remove::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 2px;
+    background: #c9534d;
+    transition: all 0.3s ease;
+}
+
+.cart-item-remove:hover::before,
+.cart-item-remove:hover::after {
+    background: #fff;
+}
+
+.cart-item-remove::before {
+    transform: rotate(45deg);
+}
+
+.cart-item-remove::after {
+    transform: rotate(-45deg);
+}
+
+.cart-footer {
+    padding: 20px;
+    border-top: 2px solid rgba(45, 31, 15, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cart-total {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2d1f0f;
+    text-align: center;
+}
+
+.total-amount {
+    color: #8b6f47;
+    margin: 0 5px;
+}
+
+.checkout-btn {
+    display: block;
+    width: 100%;
+    padding: 16px 30px;
+    background: #2d1f0f;
+    color: #d3b18b;
+    text-decoration: none;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 8px;
+    border: 2px solid #2d1f0f;
+    transition: all 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background: transparent;
+    color: #2d1f0f;
 }
 
 /* بوب اب سياسة الاسترجاع */
