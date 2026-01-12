@@ -47,7 +47,7 @@
                     <ul class="menu-list">
                         <li><a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
                         <li><a href="products.html" class="products-link" data-ar="المنتجات" data-en="Products">المنتجات</a></li>
-                        <li><a href="#cart" data-ar="سلة التسوق" data-en="Shopping Cart">سلة التسوق</a></li>
+                        <li><a href="#" class="cart-link" data-ar="سلة التسوق" data-en="Shopping Cart">سلة التسوق</a></li>
                     </ul>
                 </div>
                 <div class="menu-divider"></div>
@@ -232,6 +232,169 @@
         </footer>
     </div>
 
-    <script src="./all-scripts.js"></script>
+    <script>
+// المتغيرات العامة
+let currentLanguage = 'ar';
+
+// وظيفة اختيار اللغة
+function selectLanguage(lang) {
+    currentLanguage = lang;
+    localStorage.setItem('currentLanguage', lang);
+    
+    const popup = document.getElementById('languagePopup');
+    if (popup) {
+        popup.classList.add('hidden');
+    }
+    
+    if (lang === 'en') {
+        document.documentElement.setAttribute('dir', 'ltr');
+        document.documentElement.setAttribute('lang', 'en');
+    } else {
+        document.documentElement.setAttribute('dir', 'rtl');
+        document.documentElement.setAttribute('lang', 'ar');
+    }
+    
+    updateTexts(lang);
+}
+
+// تحديث النصوص
+function updateTexts(lang) {
+    const elements = document.querySelectorAll('[data-ar][data-en]');
+    elements.forEach(el => {
+        const text = lang === 'ar' ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+        if (text) el.textContent = text;
+    });
+}
+
+// حذف من السلة
+function removeFromCart(index) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartDisplay();
+}
+
+// بعد تحميل الصفحة
+window.addEventListener('load', function() {
+    const menuIcon = document.getElementById('menuIcon');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const menuClose = document.getElementById('menuClose');
+    const menuBackdrop = document.getElementById('menuBackdrop');
+    
+    if (menuIcon && menuOverlay && menuBackdrop) {
+        menuIcon.addEventListener('click', function() {
+            menuIcon.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            menuBackdrop.classList.toggle('active');
+            
+            if (menuOverlay.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+                const cartOverlay = document.getElementById('cartOverlay');
+                if (cartOverlay) cartOverlay.classList.remove('active');
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+    
+    if (menuClose) {
+        menuClose.addEventListener('click', function() {
+            menuIcon.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            menuBackdrop.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+    
+    // رابط السلة في المنيو
+    const cartMenuLink = document.querySelector('.cart-link');
+    if (cartMenuLink) {
+        cartMenuLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            // إغلاق المنيو
+            menuIcon.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            // فتح السلة
+            const cartOverlay = document.getElementById('cartOverlay');
+            if (cartOverlay) {
+                cartOverlay.classList.add('active');
+                menuBackdrop.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                updateCartDisplay();
+            }
+        });
+    }
+    
+    document.querySelectorAll('.menu-list a').forEach(link => {
+        if (!link.classList.contains('cart-link')) {
+            link.addEventListener('click', function() {
+                menuIcon.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                menuBackdrop.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        }
+    });
+    
+    const cartIcon = document.getElementById('cartIcon');
+    const cartOverlay = document.getElementById('cartOverlay');
+    const cartClose = document.getElementById('cartClose');
+    
+    if (cartIcon && cartOverlay) {
+        cartIcon.addEventListener('click', function() {
+            cartOverlay.classList.toggle('active');
+            if (menuBackdrop) menuBackdrop.classList.toggle('active');
+            
+            if (cartOverlay.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+                if (menuOverlay) menuOverlay.classList.remove('active');
+                if (menuIcon) menuIcon.classList.remove('active');
+                updateCartDisplay();
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+    
+    if (cartClose) {
+        cartClose.addEventListener('click', function() {
+            cartOverlay.classList.remove('active');
+            if (menuBackdrop) menuBackdrop.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+    
+    updateCartDisplay();
+});
+
+function updateCartDisplay() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartContent = document.getElementById('cartContent');
+    const cartFooter = document.getElementById('cartFooter');
+    const cartTotal = document.getElementById('cartTotal');
+    const cartCount = document.querySelector('.cart-count');
+    
+    if (cartCount) cartCount.textContent = cart.length;
+    if (!cartContent) return;
+    
+    if (cart.length === 0) {
+        const emptyMsg = currentLanguage === 'ar' ? 'السلة فارغة' : 'Cart is empty';
+        cartContent.innerHTML = '<p class="cart-empty">' + emptyMsg + '</p>';
+        if (cartFooter) cartFooter.style.display = 'none';
+    } else {
+        let itemsHTML = '<div class="cart-items">';
+        cart.forEach(function(item, index) {
+            const sizeLabel = currentLanguage === 'ar' ? 'المقاس:' : 'Size:';
+            const productImages = {'P1': 'P1.png', 'P2': 'P2.png', 'P3': 'P3.png', 'P4': 'P4.png'};
+            itemsHTML += '<div class="cart-item"><div class="cart-item-image"><img src="' + (productImages[item.productId] || 'P1.png') + '" alt="' + item.productName + '"></div><div class="cart-item-details"><div class="cart-item-name">' + item.productName + '</div><div class="cart-item-info">' + sizeLabel + ' ' + item.size + '</div></div><button class="cart-item-remove" onclick="removeFromCart(' + index + ')"></button></div>';
+        });
+        itemsHTML += '</div>';
+        cartContent.innerHTML = itemsHTML;
+        if (cartTotal) cartTotal.textContent = cart.length;
+        if (cartFooter) cartFooter.style.display = 'flex';
+        updateTexts(currentLanguage);
+    }
+}
+    </script>
 </body>
 </html>
